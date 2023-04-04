@@ -28,6 +28,17 @@ def audio_details(request):
     context['text_audio'] = TextAudio.objects.all()
     return render(request, 'audioapp/audio_details.html', context)
 
+def audio_modify(request, id):
+    text_obj = TextAudio.objects.get(id=id)
+    if request.method == 'GET':
+        text_form = TextAudioForm(instance=text_obj)
+    else:
+        text_form = TextAudioForm(request.POST)
+        if form.is_valid():
+            text_form.save()
+            return redirect('audioapp:audio-details')
+    return render(request, 'audioapp/audio_modify.html', {'text_form':text_form,})
+
 def audio_delete(request, id):
     text_audio = TextAudio.objects.filter(id=id).delete()
     #text_audio = TextAudio.objects.get(id=id)

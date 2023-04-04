@@ -7,5 +7,6 @@ urlpatterns = [
     path("", views.home, name = 'home'),
     path('audio-create', views.audio_create, name = 'audio-create'),
     path('audio-details', views.audio_details, name ='audio-details'),
+    path('audio-modify/<int:id>', views.audio_modify, name = 'audio-modify'),
     path('audio-delete/<int:id>', views.audio_delete, name ='audio-delete'),
 ]
