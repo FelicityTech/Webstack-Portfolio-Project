@@ -2,8 +2,7 @@ from django.db import models
 import datetime
 
 # Create your models here.
-class TextAudio(models.Model):
-    language_choice = (
+language_choice = (
         ('en-us', 'English-United States'),
         ('af', 'Afrikaans'),
         ('sq', 'Albanian'),
@@ -61,6 +60,8 @@ class TextAudio(models.Model):
         ('vi', 'Vietnamese'),
         ('cy', 'Welsh'),
     )
+    
+class TextAudio(models.Model):
     text_name = models.CharField(max_length=20)
     info = models.TextField()
     lang= models.CharField(max_length=10, choices=language_choice, default='English - United States')
@@ -68,3 +69,21 @@ class TextAudio(models.Model):
 
     def __str__(self):
         return "{} - {}".format(self.text_name, self.date_created)
+
+class UploadPDF(models.Model):
+    pdf_name = models.CharField(max_length=30)
+    pdf = models.FileField(upload_to='pdffolder', blank=True, null=True)
+    lang = models.CharField(max_length=10, choices=language_choice)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return "{} - {}".format(self.pdf_name, self.date_created)
+
+class PDFAudio(models.Model):
+    pdf_name = models.CharField(max_length=20)
+    mytext = models.TextField(null=True)
+    lang= models.CharField(max_length=10)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def _str_(self):
+        return "{} - {}".format(self.pdf_name, self.date_created)
