@@ -10,9 +10,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-	      <a class="nav-link active" aria-current="page" href="{% url 'audioapp:audio-create' %}">Text Audio Maker</a>
-	      <a class="nav-link" href="{% url 'audioapp:pdf-create' %}">PDF Audio Maker</a>
-	<a class="nav-link" href="{% url 'audioapp:audio-details' %}">Playlist</a>
+        <a class="nav-link active" aria-current="page" href="#">Create Playlist</a>
+        <a class="nav-link" href="#">PDF Audio Maker</a>
+	<a class="nav-link" href="{% url 'audioapp:pdf-details' %}">Playlist</a>
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </div>
     </div>
@@ -22,7 +22,7 @@
 	<h2 class="my-4"> Modify your Text details</h2>
 	<form method='post' enctype="multipart/form-data">
 		{% csrf_token %}
-		{{text_form|crispy}}
+		{{pdf_form|crispy}}
 		<button class="btn btn-primary my-4" type="submit">Submit</button>
 	</form>
 </div>

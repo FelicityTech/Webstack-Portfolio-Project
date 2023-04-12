@@ -18,10 +18,10 @@
 		<a class="nav-link" href="{% url 'audioapp:audio-create' %}">Text Audio Maker</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">PDF Audio Maker</a>
+		<a class="nav-link" href="{% url 'audioapp:pdf-create' %}">PDF Audio Maker</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+		<a class="nav-link disabled" href="{% url 'audioapp:pdf-details' %}" tabindex="-1" aria-disabled="true">PDF Audio Playlist</a>
         </li>
       </ul>
     </div>
@@ -41,7 +41,7 @@
     <h5 class="card-title">PDF Audio Maker</h5>
     <p class="card-text">This is a PDF audio app that support voice creation in over 52 languages. This app using GTTS and PyPDF modules</p>
     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    <a href="#" class="btn btn-primary">Get started...</a>
+    <a href="{% url 'audioapp:pdf-create' %}" class="btn btn-primary">Get started...</a>
   </div>
   <img src="..." class="card-img-bottom" alt="...">
 </div>

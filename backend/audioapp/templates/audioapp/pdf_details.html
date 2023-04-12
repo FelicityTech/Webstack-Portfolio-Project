@@ -1,6 +1,6 @@
 {% extends 'audioapp/base.html' %} 
 {% load gTTS %}
-{% block title %}Text Audio Playlist{% endblock title%}
+{% block title %}Text PDF Playlist{% endblock title%}
 {% block content %} 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -10,31 +10,31 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-	      <a class="nav-link active" aria-current="page" href="{% url 'audioapp:audio-create' %}">Text Audio Maker</a>
-	      <a class="nav-link" href="{% url 'audioapp:pdf-create' %}">PDF Audio Maker</a>
-	<a class="nav-link" href="{% url 'audioapp:pdf-details' %}">PDF Audio Playlist</a>
+	      <a class="nav-link active" aria-current="page" href="{% url 'audioapp:pdf-create' %}">PDF Audio Maker</a>
+	      <a class="nav-link" href="{% url 'audioapp:audio-create' %}">Text Audio Maker</a>
+	<a class="nav-link" href="{% url 'audioapp:audio-details' %}">Text Playlist</a>
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </div>
     </div>
   </div>
 </nav>
-<h1 class="my-1">Text Audio Playlist</h1>
+<h1 class="my-1">PDF Audio Playlist</h1>
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
-	  {% for t in text_audio %}
+	  {% for t in pdf_audio %}
     <div class="col-md-4">
-	    <audio src="{% say t.lang t.info %}" controls></audio>
+	    <audio src="{% say t.lang t.mytext %}" controls></audio>
     </div>
     <div class="col-md-8">
       <div class="card-body">
-	      <h5 class="card-title">{{t.text_name}}</h5>
-	      <p class="card-text">{{t.info}}</p>
+	      <h5 class="card-title">{{t.pdf_name}}</h5>
+	      <p class="card-text">{{t.mytext}}</p>
 	      <p class="card-text"><small class="text-muted">{{t.lang}} |{{t.date_created}}</small></p>
-	      <a href="audio-modify/{{t.id}}" class="btn btn-secondary">Modify</a>
-	      <a href="audio-delete/{{t.id}}" class="btn btn-primary">Delete</a>
+	      <a href="pdfaudio-modify/{{t.id}}" class="btn btn-secondary">Modify</a>
+	      <a href="pdf-delete/{{t.id}}" class="btn btn-primary">Delete</a>
       </div>
       {% empty %}
-      <p>No Text audio created yet...</p>
+      <p>No audio created yet!!!</p>
       {% endfor %}
     </div>
   </div>
