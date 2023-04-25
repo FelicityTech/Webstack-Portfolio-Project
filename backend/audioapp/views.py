@@ -61,7 +61,7 @@ def pdfaudio_modify(request, id):
         pdf_form = PDFAudioForm(instance=pdf_obj)
     else:
         pdf_form = PDFAudioForm(request.POST)
-        if form.is_valid():
+        if pdf_form.is_valid():
             pdf_form.save()
             return redirect('audioapp:pdf-details')
     return render(request, 'audioapp/pdfaudio_modify.html', {'pdf_form':pdf_form
@@ -96,7 +96,7 @@ def audio_modify(request, id):
         text_form = TextAudioForm(instance=text_obj)
     else:
         text_form = TextAudioForm(request.POST)
-        if form.is_valid():
+        if text_form.is_valid():
             text_form.save()
             return redirect('audioapp:audio-details')
     return render(request, 'audioapp/audio_modify.html', {'text_form':text_form,})
