@@ -21,7 +21,7 @@
 <h1 class="my-1">Text Audio Playlist</h1>
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
-	  {% for t in text_audio %}
+	  <div>{% for t in text_audio %}</div>
     <div class="col-md-4">
 	    <audio src="{% say t.lang t.info %}" controls></audio>
     </div>
