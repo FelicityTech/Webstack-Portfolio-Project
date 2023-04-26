@@ -9,9 +9,7 @@ language_choice = (
         ('ar', 'Arabic'), 
         ('hy', 'Armenian'),
         ('bn', 'Bengali'),
-        ('bn', 'Bengali'),
         ('ca', 'Catalan'),
-        ('bn', 'Bengali'),
         ('zh', 'Chinese'),
         ('bn', 'Bengali'),
         ('zh-cn', 'Chinese'),
@@ -64,7 +62,7 @@ language_choice = (
 class TextAudio(models.Model):
     text_name = models.CharField(max_length=20)
     info = models.TextField()
-    lang= models.CharField(max_length=10, choices=language_choice, default='English - United States')
+    lang= models.CharField(max_length=10, choices=language_choice, default='English-United States')
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -73,7 +71,7 @@ class TextAudio(models.Model):
 class UploadPDF(models.Model):
     pdf_name = models.CharField(max_length=30)
     pdf = models.FileField(upload_to='pdffolder', blank=True, null=True)
-    lang = models.CharField(max_length=10, choices=language_choice)
+    lang = models.CharField(max_length=10, choices=language_choice, default='English-United States')
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
